@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "820612128797",
+    "project_id": "liveasy-assignment-4af24",
+    "storage_bucket": "liveasy-assignment-4af24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820612128797:android:8f93cb5ee8585e45b566f4",
+        "android_client_info": {
+          "package_name": "com.example.liveasy_assignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820612128797-oeiv7sg2937p7gg1bg85tn68i61511cd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.liveasy_assignment",
+            "certificate_hash": "c422ddcbe33774600ab16e6b289e776ea7914ff8"
+          }
+        },
+        {
+          "client_id": "820612128797-ppqlid8v6u31k0tptqbtb6rqu5i935js.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLijhyw_mXmip6XBjkGvBc_nk6LhvY-bQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820612128797-ppqlid8v6u31k0tptqbtb6rqu5i935js.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
