@@ -47,10 +47,9 @@ class VerifyNumber with ChangeNotifier {
         navigator.pushNamed(Page4.route);
       },
       verificationFailed: (FirebaseAuthException e) {
-        final navigator = Navigator.of(context);
         final focus = FocusScope.of(context);
         focus.unfocus();
-        navigator.pop();
+
         Fluttertoast.showToast(
             gravity: ToastGravity.SNACKBAR,
             msg: e.code.toString() == "too-many-requests"
