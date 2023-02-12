@@ -45,7 +45,6 @@ class VerifyNumber with ChangeNotifier {
         await _auth.signInWithCredential(credential);
         focus.unfocus();
         navigator.pushNamed(Page4.route);
-        print("verified");
       },
       verificationFailed: (FirebaseAuthException e) {
         final navigator = Navigator.of(context);

@@ -4,28 +4,16 @@ import 'package:liveasy_assignment/widgets/widgets.dart';
 
 class Page1 extends StatelessWidget {
   static const String route = "Page1Route";
-  Page1({super.key});
+  const Page1({super.key});
 
   final String heading = "Please select your language";
   final String subheading = "You can change the language\nat any time.";
 
-  double deviceWidth = 0;
-  double deviceHeight = 0;
-
-  void setUIDimensions(double width, double height) {
-    deviceHeight = height;
-    deviceWidth = width;
-  }
-
-  bool dimensionSet = false;
-
   @override
   Widget build(BuildContext context) {
-    if (!dimensionSet) {
-      setUIDimensions(MediaQuery.of(context).size.width,
-          MediaQuery.of(context).size.height);
-      dimensionSet = true;
-    }
+    double deviceWidth = MediaQuery.of(context).size.width;
+    double deviceHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(

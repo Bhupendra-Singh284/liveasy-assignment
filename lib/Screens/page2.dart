@@ -21,16 +21,6 @@ class _Page2State extends State<Page2> {
   final String subheading = "You'll receive a 6 digit code\nto verify next";
   final buttonText = "Continue";
 
-  double deviceWidth = 0;
-  double deviceHeight = 0;
-
-  void setUIDimensions(double width, double height) {
-    deviceHeight = height;
-    deviceWidth = width;
-  }
-
-  bool dimensionSet = false;
-
   final _key = GlobalKey<FormState>();
 
   @override
@@ -43,11 +33,9 @@ class _Page2State extends State<Page2> {
   Widget build(BuildContext context) {
     final userNum = Provider.of<UserDetails>(context, listen: false);
     final verify = Provider.of<VerifyNumber>(context, listen: false);
-    if (!dimensionSet) {
-      setUIDimensions(MediaQuery.of(context).size.width,
-          MediaQuery.of(context).size.height);
-      dimensionSet = true;
-    }
+    double deviceWidth = MediaQuery.of(context).size.width;
+    double deviceHeight = MediaQuery.of(context).size.height;
+
     final fontSize = deviceHeight * 0.034;
 
     return Scaffold(
