@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:liveasy_assignment/Screens/page4.dart';
 import 'package:liveasy_assignment/Authentication/userDetails.dart';
+import 'package:liveasy_assignment/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:liveasy_assignment/Authentication/verifyNumber.dart';
@@ -29,6 +30,8 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceWidth = MediaQuery.of(context).size.width;
     final p = Provider.of<UserDetails>(context, listen: false);
     final verify = Provider.of<VerifyNumber>(context);
 
@@ -63,23 +66,20 @@ class Page3 extends StatelessWidget {
             children: [
               Text(
                 title,
-                style:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: deviceHeight * 0.04, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 9,
               ),
-              Text(
-                subtitle + p.showNumber(),
-                style: const TextStyle(fontSize: 20, color: Colors.grey),
-              ),
+              CommonWidgets.subheading(subtitle + p.showNumber(), context),
               const SizedBox(
                 height: 30,
               ),
               Form(
                   key: _key,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -97,10 +97,11 @@ class Page3 extends StatelessWidget {
                           borderWidth: 0,
                           autoFocus: true,
                           cursorColor: const Color.fromARGB(255, 32, 31, 31),
-                          textStyle: const TextStyle(
-                              color: Colors.black, fontSize: 25),
+                          textStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize: deviceHeight * 0.03),
                           numberOfFields: 6,
-                          fieldWidth: 52,
+                          fieldWidth: deviceWidth * 0.13,
                           filled: true,
                           inputFormatters: [
                             FilteringTextInputFormatter.digitsOnly,
@@ -113,9 +114,8 @@ class Page3 extends StatelessWidget {
                         Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(contentText,
-                                  style: const TextStyle(
-                                      fontSize: 18, color: Colors.grey)),
+                              CommonWidgets.subheading(
+                                  "Did't receive the code?", context),
                               TextButton(
                                   onPressed: () {
                                     verify.resendOtp(p.showNumber(), context);
@@ -134,8 +134,7 @@ class Page3 extends StatelessWidget {
                               backgroundColor:
                                   ColorConstants.buttonBackgroundColor,
                               foregroundColor: ColorConstants.buttonTextColor,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 85, vertical: 20),
+                              padding: const EdgeInsets.symmetric(vertical: 20),
                               shape: const RoundedRectangleBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(0))),
@@ -158,11 +157,16 @@ class Page3 extends StatelessWidget {
                                 }
                               }
                             },
-                            child: Text(buttonText,
-                                style: const TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold))),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(buttonText,
+                                    style: TextStyle(
+                                        fontSize: deviceHeight * 0.024,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold)),
+                              ],
+                            )),
                         const SizedBox(
                           height: 250,
                         )

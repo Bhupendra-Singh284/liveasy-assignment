@@ -7,8 +7,7 @@ class Page1 extends StatelessWidget {
   Page1({super.key});
 
   final String heading = "Please select your language";
-  final String subheading =
-      "You can change the language\n                at any time.";
+  final String subheading = "You can change the language\nat any time.";
 
   double deviceWidth = 0;
   double deviceHeight = 0;
@@ -49,13 +48,18 @@ class Page1 extends StatelessWidget {
                 width: deviceWidth * 0.28,
               ),
               const SizedBox(height: 20),
-              CommonWidgets.heading(heading),
+              CommonWidgets.heading(heading, context),
               const SizedBox(height: 8),
-              CommonWidgets.subheading(subheading),
+              CommonWidgets.subheading(subheading, context),
               const SizedBox(height: 23),
-              const DropDownWidget(),
+              DropDownWidget(
+                context: context,
+              ),
               const SizedBox(height: 23),
-              CommonWidgets.elevatedButton("NEXT", 100, context, Page2.route),
+              SizedBox(
+                  width: deviceWidth * 0.64,
+                  child: CommonWidgets.elevatedButton(
+                      "NEXT", context, Page2.route)),
               const SizedBox(height: 160),
             ])),
       ),

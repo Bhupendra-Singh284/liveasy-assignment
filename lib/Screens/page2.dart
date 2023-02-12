@@ -18,8 +18,7 @@ class Page2 extends StatefulWidget {
 class _Page2State extends State<Page2> {
   final TextEditingController numberController = TextEditingController();
   final String heading = "Please enter your mobile number";
-  final String subheading =
-      "You'll receive a 6 digit code\n            to verify next";
+  final String subheading = "You'll receive a 6 digit code\nto verify next";
   final buttonText = "Continue";
 
   double deviceWidth = 0;
@@ -49,6 +48,7 @@ class _Page2State extends State<Page2> {
           MediaQuery.of(context).size.height);
       dimensionSet = true;
     }
+    final fontSize = deviceHeight * 0.034;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -69,6 +69,7 @@ class _Page2State extends State<Page2> {
       ),
       backgroundColor: Colors.white,
       body: Container(
+        alignment: Alignment.center,
         decoration: const BoxDecoration(
             color: Colors.white,
             image: DecorationImage(
@@ -80,18 +81,19 @@ class _Page2State extends State<Page2> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CommonWidgets.heading(heading),
+                CommonWidgets.heading(heading, context),
                 const SizedBox(
                   height: 11,
                 ),
-                CommonWidgets.subheading(subheading),
+                CommonWidgets.subheading(subheading, context),
                 const SizedBox(
                   height: 35,
                 ),
                 Form(
                   key: _key,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: deviceWidth * 0.035),
                     child: Column(children: [
                       TextFormField(
                         inputFormatters: [
@@ -110,7 +112,7 @@ class _Page2State extends State<Page2> {
                         keyboardType: TextInputType.phone,
                         maxLength: 10,
                         style:
-                            const TextStyle(fontSize: 25, color: Colors.black),
+                            TextStyle(fontSize: fontSize, color: Colors.black),
                         decoration: InputDecoration(
                             counterText: "",
                             hintText: "Mobile Number",
@@ -129,11 +131,12 @@ class _Page2State extends State<Page2> {
                                   height: deviceHeight * 0.08,
                                 ),
                               ),
-                              const Text(
+                              Text(
                                 " +91    -    ",
                                 style: TextStyle(
-                                    color: Color.fromARGB(255, 40, 39, 39),
-                                    fontSize: 25),
+                                    color:
+                                        const Color.fromARGB(255, 40, 39, 39),
+                                    fontSize: fontSize),
                               )
                             ]),
                             errorStyle: const TextStyle(fontSize: 16),
@@ -177,16 +180,21 @@ class _Page2State extends State<Page2> {
                             backgroundColor:
                                 ColorConstants.buttonBackgroundColor,
                             foregroundColor: ColorConstants.buttonTextColor,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 135, vertical: 20),
+                            padding: const EdgeInsets.symmetric(vertical: 20),
                             shape: const RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(0))),
                           ),
-                          child: Text(
-                            buttonText,
-                            style: const TextStyle(
-                                fontSize: 26, fontWeight: FontWeight.bold),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                buttonText,
+                                style: TextStyle(
+                                    fontSize: fontSize,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ))
                     ]),
                   ),

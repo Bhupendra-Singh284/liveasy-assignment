@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DropDownWidget extends StatefulWidget {
-  const DropDownWidget({super.key});
+  final BuildContext context;
+  const DropDownWidget({super.key, required this.context});
 
   @override
   State<DropDownWidget> createState() => _DropDownWidgetState();
@@ -17,8 +18,9 @@ class _DropDownWidgetState extends State<DropDownWidget> {
       value: text,
       child: Text(
         text,
-        style: const TextStyle(
-            fontSize: 23, color: Color.fromARGB(255, 51, 50, 50)),
+        style: TextStyle(
+            fontSize: MediaQuery.of(context).size.height * 0.027,
+            color: const Color.fromARGB(255, 51, 50, 50)),
       ),
     );
   }
@@ -26,7 +28,7 @@ class _DropDownWidgetState extends State<DropDownWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
+      width: MediaQuery.of(context).size.width * 0.64,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       decoration:
           BoxDecoration(border: Border.all(width: 1.2, color: Colors.black)),
